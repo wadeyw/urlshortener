@@ -1,0 +1,26 @@
+{
+  "name": "urlshortener",
+  "version": "1.0.0",
+  "description": "url shortener microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wadeyw/urlshortener.git"
+  },
+  "keywords": [
+    "freecodecamp",
+    "url"
+  ],
+  "author": "wade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wadeyw/urlshortener/issues"
+  },
+  "homepage": "https://github.com/wadeyw/urlshortener#readme",
+  "dependencies": {
+    "express": "^4.15.0"
+  }
+}
