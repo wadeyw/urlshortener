@@ -11,8 +11,8 @@ var utils=require('./utils');
 mongoose.Promise=global.Promise;
 export var app=express();
 
-//mongoose.connect("ds117830.mlab.com:17830/freeccexecrise");
-mongoose.connect('mongodb://localhost:27017/urlShortener');
+mongoose.connect("ds117830.mlab.com:17830/freeccexecrise");
+//mongoose.connect('mongodb://localhost:27017/urlShortener');
 console.log("app get"+mongoose);
 /*get short url and redirect to original url*/
 app.get('/:shortCode',function(req,res){
