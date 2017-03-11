@@ -22,9 +22,9 @@ function getMaxShortCode(){
 export function isExistUrl(url){
   console.log(url+"/URL Existiance check");
   return UrlMap
-    .find({original:url})
+    .findOne({original:url})
     .select({_id:0,shortCode:1})
-    .then(doc=>{return doc.length>0?doc[0].shortCode:0});
+    .then(doc=>{console.log("existing URL:"+doc); return doc.length>0?doc.shortCode:0});
  // return UrlMap
    // .find({original:url})
     //.then(doc=> doc.length?doc[0].shortCode:false);

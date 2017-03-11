@@ -47,7 +47,7 @@ app.get('/new/*',(req,res)=>{
   if(utils.isValidUrl(url)){
     mongodb.isExistUrl(url).then(exists=>{
 	console.log("URL Existing status:"+exists);
-      if(exists)
+      if(exists>=0)
         res.status(500).json({error: "URL already exist",shortCode:exists});
       else {
         mongodb.insertUrl(url).then(doc=>{
