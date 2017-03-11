@@ -2,17 +2,22 @@
 //import mongoose from 'mongoose';
 //import {UrlMap,isExistUrl,insertNew} from './mongodb';
 //imt {isValidUrl,getShortUrl} from './utils'; 
+//export MONGOLAB_URI="mongodb://fccuser:fccuser@ds117830.mlab.com:17830/freeccexecrise"
+//heroku config:set MONGOLAB_URI=mongodb://username:password@ds01316.mlab.com:1316/food
+
 require('babel-register');
 var express=require('express');
 var mongoose=require('mongoose');
 var mongodb=require('./mongodb');
 var utils=require('./utils');
 var path=require('path');
+var url=process.env.MONGOLAB_URI;
 
 mongoose.Promise=global.Promise;
 export var app=express();
 
-mongoose.connect("mongodb://fccuser:fccuser@ds117830.mlab.com:17830/freeccexecrise");
+
+mongoose.connect(url);
 //mongoose.connect('mongodb://localhost:27017/urlShortener');
 console.log("app get"+mongoose);
 //direct to home page
