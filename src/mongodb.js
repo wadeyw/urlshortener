@@ -16,7 +16,7 @@ function getMaxShortCode(){
     .sort({shortCode:-1})
     .limit(1)
     .select({_id:0,shortCode:1})
-    .then(doc=>{return doc.length==1?doc[0].shortCode+1:0});
+    .then(doc=>{return doc.length==1?doc[0].shortCode+1:1});
 }
 
 export function isExistUrl(url){
@@ -24,7 +24,7 @@ export function isExistUrl(url){
   return UrlMap
     .findOne({original:url})
     .select({_id:0,shortCode:1})
-    .then(doc=>{console.log("existing URL:"+doc); return doc.length>0?doc.shortCode:0});
+    .then(doc=>{console.log("existing URL:"+doc); return doc?doc.shortCode:0});
  // return UrlMap
    // .find({original:url})
     //.then(doc=> doc.length?doc[0].shortCode:false);
