@@ -7,13 +7,18 @@ var express=require('express');
 var mongoose=require('mongoose');
 var mongodb=require('./mongodb');
 var utils=require('./utils');
+var path=require('path');
 
 mongoose.Promise=global.Promise;
 export var app=express();
 
-mongoose.connect("ds117830.mlab.com:17830/freeccexecrise");
+mongoose.connect("mongodb://fccuser:fccuser@ds117830.mlab.com:17830/freeccexecrise");
 //mongoose.connect('mongodb://localhost:27017/urlShortener');
 console.log("app get"+mongoose);
+//direct to home page
+app.get('/', function(req, res, next) {  res.sendFile(path.join(__dirname, '/index.html'))});
+
+
 /*get short url and redirect to original url*/
 app.get('/:shortCode',function(req,res){
   console.log("app get shortcode");
@@ -21,12 +26,14 @@ app.get('/:shortCode',function(req,res){
   if(isNaN(shortCode)){
     res.status(500).json({error:"Invalid shortCode, it must be an Integer"});
   } else {
-    mongodb.UrlMap.findOne({shortCode}).then(doc=>{
-      if(!doc)
-        res.status(404).json({error:"Page not found"});
-      else {
-        res.redirect(doc.original);   //jump to the original url
-      }
+    mongodb.UrlMap
+      .findOne({shortCode})
+      .then(doc=>{
+        if(!doc)
+          res.status(404).json({error:"Page not found"});
+        else {
+          res.redirect(doc.original);   //jump to the original url
+        }
     });
   }
 });

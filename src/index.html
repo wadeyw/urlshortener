@@ -1,0 +1,29 @@
+<div >
+  <h1>URL Shortener Microservice</h1>
+
+  <h4>User Story1:</h4>
+  <p>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.<p>
+  <h4>User Story2:</h4>
+  <p>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.<p>
+  <h4>User Story3:</h3>
+  <p>When I visit that shortened URL, it will redirect me to my original link.<p>
+  
+  <h4>Example Usage1:</h3>
+  https://fccurlshortener.herokuapp.com/new/http://www.google.com
+
+  <h4>Example Output1:</h3>
+  {original_url:url,short_url:https://fccurlshortener.herokuapp.com/1}
+  
+  <h4>Example Usage2:</h3>
+  https://fccurlshortener.herokuapp.com/1
+
+  <h4>Example Output2:</h3>
+  Will open www.google.com
+  
+  <h4>Example Usage3:</h3>
+  https://fccurlshortener.herokuapp.com/google.com
+
+  <h4>Example Output3:</h3>
+  {error: Invalid URL format. URL must comply to the following: http(s)://(www.)domain.ext(/*)}
+  
+<div>

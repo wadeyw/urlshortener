@@ -24,7 +24,7 @@ export function isExistUrl(url){
   return UrlMap
     .find({original:url})
     .select({_id:0,shortCode:1})
-    .then(doc=>{return doc.length>0?1:0});
+    .then(doc=>{return doc.length>0?doc[0].shortCode:0});
  // return UrlMap
    // .find({original:url})
     //.then(doc=> doc.length?doc[0].shortCode:false);
